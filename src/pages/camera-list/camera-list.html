@@ -1,5 +1,5 @@
 <!--
-  Generated template for the CameraPage page.
+  Generated template for the CameraListPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -10,16 +10,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Camera</ion-title>
+    <ion-title>Minhas Fotos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<h3>Camerca</h3>
-  <button ion-button (click)="choosePhoto">Enviar Foto</button>
-  <img src="{{myPhoto}}">
-  <button ion-button (click)="saveImage"></button>
-
+  <div *ngFor="let photo of photos">
+    <img src="{{photo.url}}">
+  </div>
 </ion-content>

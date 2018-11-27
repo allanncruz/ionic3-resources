@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CameraPage page.
+ * Generated class for the CameraListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,24 +10,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-camera',
-  templateUrl: 'camera.html',
+  selector: 'page-camera-list',
+  templateUrl: 'camera-list.html',
 })
-export class CameraPage {
+export class CameraListPage {
+
+  photos: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CameraPage');
-  }
-
-  choosePhoto() {
-
-  }
-
-  saveImage() {
-
+    console.log('ionViewDidLoad CameraListPage');
   }
 
 }
