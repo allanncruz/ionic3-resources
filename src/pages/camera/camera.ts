@@ -27,7 +27,7 @@ export class CameraPage {
   }
 
   choosePhoto() {
-    let actionSheet = this.actionSheet.create({
+      let actionSheet = this.actionSheet.create({
         title: 'Selecione uma imagem',
         buttons: [
             {
