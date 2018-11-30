@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 /**
  * Generated class for the CameraPage page.
@@ -15,7 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CameraPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      private actionSheet: ActionSheetController
+  ) {
   }
 
   ionViewDidLoad() {
@@ -23,10 +27,37 @@ export class CameraPage {
   }
 
   choosePhoto() {
+    let actionSheet = this.actionSheet.create({
+        title: 'Selecione uma imagem',
+        buttons: [
+            {
+              text: 'Tirar foto',
+                handler: () => {
+                this.takePhoto()
+                }
+            },
+            {
+                text: 'Escolher foto',
+                handler: () => {
+                    this.takePhoto()
+                }
+            },
+            {
+                text: 'Cancelar foto',
+                role: 'cancel'
+            }
+        ]
+    })
+
+      actionSheet.present();
 
   }
 
   saveImage() {
+
+  }
+
+  private takePhoto() {
 
   }
 
