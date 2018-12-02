@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the CameraPage page.
@@ -15,10 +16,13 @@ import { IonicPage, NavController, NavParams, ActionSheetController } from 'ioni
 })
 export class CameraPage {
 
+    myPhoto: string;
+
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      private actionSheet: ActionSheetController
+      private actionSheet: ActionSheetController,
+      private camera: Camera,
   ) {
   }
 
@@ -58,6 +62,22 @@ export class CameraPage {
   }
 
   private takePhoto() {
+      const options: CameraOptions = {
+          quality: 100,
+          mediaType: this.camera.MediaType.PICTURE,
+          sourceType: this.camera.PictureSourceType.CAMERA,
+          destinationType: this.camera.DestinationType.FILE_URI,
+          encodingType: this.camera.EncodingType.JPEG
+      };
+      this.camera.getPicture(options)
+          .then((imageData) => {
+              console.log(imageData);
+              this.myPhoto = imageData;
+          })
+
+          .catch((err) => {
+          console.log(err);
+      })
 
   }
 
